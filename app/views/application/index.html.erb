@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Clinet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  </head >
+  <header style="padding-bottom: 35px;">
+  	<%= render partial: 'layouts/menu' %> 
+  </header>
+  <body>
+  	<div class="container" style="overflow-x: auto;  height: 800px">
+			<%= image_tag("test_task_page-0001.jpg", style: "width: 1000px;") %>
+			<%= image_tag("test_task_page-0002.jpg", style: "width: 1000px;") %>
+			<%= image_tag("test_task_page-0003.jpg", style: "width: 1000px;") %>
+  	</div>
+  	    <% if @result.present? %>
+    <script type="text/javascript">
+        alert(<%=@result %>);
+    </script>
+    <% end %>
+  </body>
+</html>

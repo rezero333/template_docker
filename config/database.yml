@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  port: 3307
+  host: '190.20.200.21'
+  username: 'root'
+  password: 'yh24RE9l7vQt'
+  encoding: utf8
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: development
+
+test:
+  <<: *default
+  database: test
+
+production:
+  <<: *default
+  database: production

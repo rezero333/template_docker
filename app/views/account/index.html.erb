@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Clinet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  </head >
+  <header style="padding-bottom: 35px;">
+    <%= render partial: 'layouts/menu' %> 
+  </header>
+  <body>
+    <div class="container" style="width: 100%">
+      <div class="col-4">
+        <span> Создать Cчет </span>
+        <%= form_with url: "/create_account", method: :post do |form| %>
+          <%= form.text_field :client_uid, {class: 'input', style: 'margin-top: 10px; width: 100%', placeholder: 'Идентификационный номер пользователя'}%>
+          <div>
+            <select name="currency" id="currency" style='margin-top: 10px; width: 100%'>
+            <option value="" >Валюта</option>
+            <% Account::CURRENCY.each do |key, data| %>
+              <option value="<%=data[:table]%>">
+                <%= data[:human] %>
+              </option>
+            <% end %>
+            </select>
+          </div>
+          <div>
+          <%= form.text_field :uid, {class: 'input', style: 'margin-top: 10px; width: 100%',  placeholder: 'Идентификационный номер'}%>
+          <%= form.text_field :amount, {class: 'input', style: 'margin-top: 10px; width: 100%',  placeholder: 'Сумма'}%>
+          <br>
+          <%= form.submit "Сохранить", {class: 'btn', style: 'margin-top: 10px' }%>
+        <% end %>
+      </div>
+    </div>
+        <% if @result.present? %>
+    <script type="text/javascript">
+        alert("<%= @result[:data][0].html_safe %>");
+    </script>
+    <% end %>
+  </body>
+</html>
