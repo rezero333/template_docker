@@ -30,6 +30,7 @@ services:
     restart: always
     depends_on:
       - db
+      - redis
     volumes:
       - .:/app:cached
       - gem_cache:/gems
@@ -53,7 +54,7 @@ services:
       ports:
           - 6385:6385
       networks:
-          chat_callibri_net:
+          template_docker:
               ipv4_address: 190.20.200.22
 volumes:
   gem_cache:
